@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'Aurora-PostGresSQL',
         'USER': 'FSJPoC2019',
         'PASSWORD': 'FSJPoC2019',
-        'HOST': '192.168.240.107',
+        'HOST': 'fsjpoc-aurorapostgresql-us-east-1c.c4b7oxdycw1u.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     },
 }
