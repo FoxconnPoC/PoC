@@ -1,0 +1,142 @@
+{% load static %}
+{% load filters %}
+<head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Cycle Time</title>
+
+
+    <link rel="stylesheet" href="{% static 'PoC/styles/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'PoC/styles/fonts/material-icons.css' %}" />
+    <link rel="stylesheet" href="{% static 'PoC/styles/navbar.css' %}" />
+
+
+    <script src="{% static 'PoC/scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'PoC/scripts/bootstrap.min.js' %}"></script>
+
+    <link href="{% static 'PoC/styles/styles.css' %}" rel="stylesheet" />
+    <link href="{% static 'PoC/styles/CycleTimeR.css' %}" rel="stylesheet" />
+
+    <script type="text/javascript" src="{% static 'PoC/scripts/cycle_time.js' %}"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'PoC/styles/style.css' %}">
+    {# <link rel="stylesheet" type="text/css" href="{% static 'PoC/styles/CycleTimeR.css' %}"> #}
+
+</head>
+
+<body class="bodyback">
+
+
+    <header>
+        <section class="headerlog">
+            <div class="logotitle"><a class="hidden-xs logo" href="Default.aspx">Foxconn </a><a href="#" class="titlesite">Cycle Time</a></div>
+         </section>
+
+    </header>
+
+    <div id="body">
+
+        <section class="content-wrapper main-content clear-fix">
+        <div class="se-pre-con"></div>
+
+            <div class="containertable transback">
+            <section>
+                <div>
+                    <div class="blg_sel"><button type="button" class="btn btn-primary">A1</button></div>
+                    <div class="blg_sel"><button type="button" class="btn btn-primary">A2</button></div>
+                    <div class="blg_sel"><button type="button" class="btn btn-primary">A3</button></div>
+                    <div class="blg_sel"><h1 class="building_line"><span id="lbl_building">A1</span></h1></div>
+                </div>
+
+
+            <div id="LineView">
+
+            <div class="tbl-header"><table cellpadding="0" cellspacing="0" border="0"><thead>
+            <th>DFMSLINE</th>
+            {% for stage in stage_list %}
+                <th class="centerhead">
+                    <div>{{ stage.stageName }}</div>
+                    <div class ="subhead">
+                        <div>PD</div>
+                    </div>
+                </th>
+            {% endfor %}
+            </thead></table></div>
+
+            <div class="tbl-content"><table cellpadding="0" cellspacing="0" border="0">
+            {% for l_key, l_data in line_data_dict.items %}
+            <tbody><tr>
+            	<td rowspan="4">
+                    <div class="linecol">
+                        <div class="line">{{ l_key }}</div>
+                        <div class="onsla">
+                            <div>in SLA</div>
+                            <div>Not in SLA</div>
+                        </div>
+                    </div>
+                </td>
+                {% for stage in stage_list %}
+                    <td><div class="subtitable ontime">
+                        <div class="square">
+                            <div class="green"><a href="{% url 'PoC:line_detail' l_key stage.stageName 1 %}" class="fill-div">
+                                {{ l_data|gkey:stage.stageName|gkey:'insla' }}
+                            </a></div>
+
+                        </div></div>
+                        <div class="subtitable outtime">
+                            <div class="red"><a href="{% url 'PoC:line_detail' l_key stage.stageName 0 %}" class="fill-div">
+                                {{ l_data|gkey:stage.stageName|gkey:'outsla' }}
+                            </a></div>
+
+                    </div></td>
+
+                {% endfor %}
+            </tr></tbody>
+            {% endfor %}
+            </table></div>
+
+            </div>
+
+            <div id="Line_Detail">
+                {% include './line_detail.html' %}
+            </div>
+
+
+            <div id="WorkorderView">
+                <div class="tbl-header"><table cellpadding="0" cellspacing="0" border="0"><thead>
+                <th class="centerhead">
+                    <div>Work Order</div>
+                </th>
+                <th class="centerhead">
+                    <div>Qty</div>
+                </th>
+                <th class="centerhead">
+                    <div>Aging</div>
+                </th>
+                </thead></table></div>
+                <div class="tbl-content"><table cellpadding="0" cellspacing="0" border="0">
+                {% for wo,data in workorder_data.items %}
+                    <tbody><tr>
+                    <td rowspan="4">
+                        <div class="linecol">
+                        <div class="">{{ wo }}</div>
+                    </div></td>
+                    <td rowspan="4">
+                        <div class="linecol">
+                        <div class="">{{ data.0 }}</div>
+                    </div></td>
+                    <td rowspan="4">
+                        <div class="linecol">
+                        <div class="">{{ data.1 }}</div>
+                    </div></td>
+                </tr></tbody>
+                {% endfor %}
+                </table></div>
+            </div>
+
+            <div id="SerialDetailResult"></div>
+
+            </section>
+            </div>
+        </section>
+    </div>
+</body>

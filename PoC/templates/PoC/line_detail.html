@@ -1,0 +1,24 @@
+
+<div class="tbl-header"><table cellpadding="0" cellspacing="0" border="0"><thead>
+{% for column_name in line_data_raw_columns %}
+    <th class="centerhead">
+        <div>{{ column_name }}</div>
+    </th>
+{% endfor %}
+</thead></table></div>
+<div class="tbl-content"><table cellpadding="0" cellspacing="0" border="0">
+{% for data_row in line_data_raw %}
+    <tbody><tr>
+    {% for n, col in data_row.items %}
+        <td rowspan="4">
+        <div class="linecol">
+        {% if n == 'sysserialno' %}
+            <div class=""><a href="{% url 'PoC:serial_detail' col %}" class="fill-div">{{ col }}</a></div>
+        {% else %}
+            <div class="">{{ col }}</div>
+        {% endif %}
+    </div></td>
+    {% endfor %}
+</tr></tbody>
+{% endfor %}
+</table></div>

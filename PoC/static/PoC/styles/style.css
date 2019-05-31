@@ -1,0 +1,48 @@
+body {
+}
+
+
+@font-face {
+    font-family: 'gunship';
+    src: url('fonts/gunship-webfont.eot');
+    src: url('fonts/gunship-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/gunship-webfont.woff2') format('woff2'),
+         url('fonts/gunship-webfont.woff') format('woff'),
+         url('fonts/gunship-webfont.ttf') format('truetype'),
+         url('fonts/gunship-webfont.svg#gunshipregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body.bodyback {
+  background:url(../images/background.png);
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size:cover;
+  font-family:sans-serif;
+  margin:0;
+}
+
+#my-div {
+    background-color: #f00;
+    width: 200px;
+    height: 200px;
+}
+
+#buildings_sel {
+    display: inline;
+}
+
+.blg_sel {
+    display: inline-block;
+}
+
+a.fill-div {
+    text-decoration: none;
+}
+
+#TableResult {
+    padding: 50px 0px 0px 0px;
+}
+

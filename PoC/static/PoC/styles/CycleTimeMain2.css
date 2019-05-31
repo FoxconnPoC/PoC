@@ -1,0 +1,88 @@
+﻿.LinkInSLA a {
+            color: white;
+            background-color: #31af1c;
+            width: 35px;
+            display: inline-block;
+            text-align: center;
+
+        }
+
+        .LinkOutSLA a {
+            color: white;
+            background-color: #ce1f1f;
+            width: 35px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .LinkNoValue a {
+            width: 35px;
+            display: inline-block;
+            text-align: center;
+            text-decoration:none;
+        }
+
+        .LinkNoValue a:hover {
+            background-color:transparent;
+        }
+
+        .Grid {
+            text-align: center;
+        }
+
+        .Grid th {
+            text-align:center;
+        }
+
+        .TotalRow {
+            border-top: black;
+            border-top-style: solid;
+            border-top-width: 2px;
+        }
+
+
+td.OwnerTitle {
+    text-align: center;
+    font-weight: bold;
+}
+
+td.StageTitle {
+    text-align: center;
+    font-weight: bold;
+    background-color: #7182b5;
+    color: white;
+}
+
+.content-wrapper {
+    margin: 0 auto;
+    margin: 10px;
+   max-width: none;
+}
+
+.LinkSpanContainers {
+    display: inline-flex;
+}
+
+.GridContainer {
+    overflow:auto;
+    padding-bottom: 20px;
+}
+
+.leftBorder {
+    border-left-color: black;
+    border-left-style: solid;
+    border-left-width: thin;
+}
+
+.LineContentTitle {
+    font-weight:bold;
+}
+
+/**************************************************************/
+
+
+
+
+
+
+

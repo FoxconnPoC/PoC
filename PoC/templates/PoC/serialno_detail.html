@@ -1,0 +1,29 @@
+{% load filters %}
+
+<div class="tbl-header"><table cellpadding="0" cellspacing="0" border="0"><thead>
+    <tr>
+    <th class="centerhead" colspan="2">
+        <div>{{ serial_qs|gkey:'sysserialno' }}</div>
+    </th></tr>
+    <tr>
+        <th class="centerhead">key</th>
+        <th class="centerhead">value</th>
+    </tr>
+</thead></table></div>
+<div class="tbl-content"><table cellpadding="0" cellspacing="0" border="0">
+{% for k,v in serial_qs.items %}
+    <tbody><tr>
+    <td rowspan="4">
+        <div class="linecol">
+            <div class="">{{ k }}</div>
+        </div>
+    </td>
+    <td rowspan="4">
+        <div class="linecol">
+            <div class="">{{ v }}</div>
+        </div>
+    </td>
+    </tr></tbody>
+
+{% endfor %}
+</table></div></div>

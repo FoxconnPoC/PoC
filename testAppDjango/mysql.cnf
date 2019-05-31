@@ -1,0 +1,5 @@
+[client]
+database = PoC
+user = root
+password = calvin
+default-character-set = utf8
